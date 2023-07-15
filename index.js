@@ -192,7 +192,7 @@ function parseData(data) {
 	let _row = data?.split(NEW_LINE)
 	return _row.reduce((prev = [] , curr , i) => {
 		const _col = ["NULL" , ...curr?.split(",")]
-		if(i ===0 && _col.length > 1){
+		if(i ===0 && _col.length > 2){
 			const headerFill = Array(_col.length).fill("HEAD")
 			return [headerFill , _col]
 		}
@@ -230,7 +230,6 @@ function updateSheetData(data) {
 save.onclick = () => {
 	download()
 }
-
 importOption.onchange = (e) => {
 
 	const file = e?.target?.files?.[0]
